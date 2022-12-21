@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100vw - 15vw);
+  margin: 0 auto;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 10vh;
+  padding-top: 3rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+main .pomodoro-timer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+main .pomodoro-timer span {
+  font-weight: bold;
+  font-size: 6rem;
+}
+
+main .pomodoro-timer button {
+  font-weight: bold;
+  font-size: 2rem;
+  background-color: var(--black);
+  color: var(--white);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 5px;
+}
+
+main > button {
+  background-color: var(--red);
+  color: var(--white);
+  width: 20rem;
+  height: 6rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+footer {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 1rem;
+}
+
+footer span {
+  font-size: 3.6rem;
+  font-weight: bold;
+}
+
+/* @media (min-width: 768px) {
+  .container {
+    max-width: calc(100vw - 15vw);
+    margin: 0 auto;
+  }
+
+  .header {
+    background-color: blue;
+    max-height: 5vh;
+  }
+
+  .main {
+    background-color: red;
+    height: 100vh;
+  }
+} */
