@@ -4,8 +4,12 @@ import './index.css';
 
 import App from './App';
 
+import ThemeProvider from './context/ThemeSwitchContext/ThemeProvider';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
