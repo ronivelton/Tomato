@@ -16,7 +16,7 @@ function App() {
       <div className={styles.container}>
         <Header />
 
-        <main>
+        <main className={styles.main}>
           <Timer />
         </main>
 

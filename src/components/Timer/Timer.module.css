@@ -7,6 +7,7 @@
 
 .pomodoroTimer span {
   font-size: 6rem;
+  margin: 2rem 0;
 }
 
 .pomodoroTimer button {
@@ -14,4 +15,24 @@
   width: 4rem;
   height: 4rem;
   border-radius: 5px;
+}
+
+.btnStart {
+  background-color: var(--red);
+  color: var(--white);
+  width: 20rem;
+  height: 6rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+@media (min-width: 600px) {
+  .pomodoroTimer {
+    justify-content: center;
+  }
+
+  .pomodoroTimer span {
+    margin: 2rem 8rem;
+  }
 }

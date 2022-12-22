@@ -17,7 +17,7 @@ export default function Timer() {
           +
         </button>
       </div>
-      <button className="btnStart" type="button">
+      <button className={styles.btnStart} type="button">
         Start
       </button>
     </>
