@@ -6,13 +6,13 @@ import Timer from './components/Timer';
 import Counter from './components/Counter';
 
 import styles from './App.module.css';
-import themes from './styles/themes.module.css';
+import { lightToDark } from './utils/themeSwitcher';
 
 function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className={theme === 'light' ? themes.light : themes.dark}>
+    <div className={lightToDark(theme)}>
       <div className={styles.container}>
         <Header />
 

@@ -36,7 +36,6 @@ main > button {
 
 .pomodoroCounter span {
   font-size: 3.6rem;
-  font-weight: bold;
 }
 
 /* @media (min-width: 768px) {

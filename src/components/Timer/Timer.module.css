@@ -6,12 +6,10 @@
 }
 
 .pomodoroTimer span {
-  font-weight: bold;
   font-size: 6rem;
 }
 
 .pomodoroTimer button {
-  font-weight: bold;
   font-size: 2rem;
   width: 4rem;
   height: 4rem;
