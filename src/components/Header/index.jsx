@@ -1,5 +1,5 @@
 import logo from '../../assets/tomato-logo.svg';
-import settingsIcon from '../../assets/settings.svg';
+import ThemeSwitchToggle from '../ThemeSwitchToggle';
 
 import styles from './Header.module.css';
 
@@ -9,9 +9,8 @@ export default function Header() {
       <div className="logo">
         <img src={logo} alt="Logo Tomato" />
       </div>
-      <button type="button" className="btn-settings">
-        <img src={settingsIcon} alt="Settings button" />
-      </button>
+
+      <ThemeSwitchToggle />
     </header>
   );
 }
