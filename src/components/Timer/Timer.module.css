@@ -1,0 +1,21 @@
+.pomodoroTimer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pomodoroTimer span {
+  font-weight: bold;
+  font-size: 6rem;
+}
+
+.pomodoroTimer button {
+  font-weight: bold;
+  font-size: 2rem;
+  background-color: var(--black);
+  color: var(--white);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 5px;
+}
