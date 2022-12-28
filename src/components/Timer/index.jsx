@@ -6,6 +6,7 @@ import { darkToLight } from '../../utils/themeSwitcher';
 
 export default function Timer() {
   const { theme } = useContext(ThemeContext);
+
   return (
     <>
       <div className={styles.pomodoroTimer}>

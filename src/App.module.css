@@ -26,10 +26,3 @@
 .pomodoroCounter span {
   font-size: 3.6rem;
 }
-
-@media (min-width: 600px) {
-  .main {
-    max-width: 60rem;
-    margin: 0 auto;
-  }
-}
