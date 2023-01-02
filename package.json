@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+        "format": "prettier-eslint --write \"src/**/*.jsx\""
   },
   "dependencies": {
+    "add": "^2.0.6",
+    "prettier-eslint-cli": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

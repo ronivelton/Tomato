@@ -22,6 +22,7 @@ function App() {
 
         <footer className={styles.pomodoroCounter}>
           <Counter />
+          <span>Made By <a href='https://github.com/user/ronivelton'>Roni</a></span>
         </footer>
       </div>
     </div>

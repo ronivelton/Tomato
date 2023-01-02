@@ -17,12 +17,29 @@
 .pomodoroCounter {
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 3rem;
+  gap: 1.5rem;
+}
+
+.pomodoroCounter > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 
-.pomodoroCounter span {
+.pomodoroCounter > div > span {
   font-size: 3.6rem;
 }
+
+.pomodoroCounter > span {
+  font-size: 1.4rem;
+}
+
+.pomodoroCounter > span a {
+  color: var(--white);
+}
+

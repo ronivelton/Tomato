@@ -9,6 +9,8 @@
 .pomodoroTimer span {
   font-size: clamp(8rem, 12vw, 12.6rem);
   margin: 2rem 0;
+  color: var(--red);
+  margin: 0 auto;
 }
 
 .pomodoroTimer button {
