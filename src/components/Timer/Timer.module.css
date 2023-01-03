@@ -18,14 +18,44 @@
   width: 4rem;
   height: 4rem;
   border-radius: 5px;
+  transition: ease-in .1s;
 }
 
-.btnStart {
-  background-color: var(--red);
-  color: var(--white);
-  width: 20rem;
+.pomodoroTimer button:hover {
+  opacity: .8;
+}
+
+.btnsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btnsContainer .btn {
+  max-width: 20rem;
+  min-width: 15rem;
   height: 6rem;
   border-radius: 5px;
   font-size: 1.8rem;
   font-weight: bold;
+  transition: ease-in .1s;
 }
+
+.btnsContainer .btn:hover {
+  opacity: .8;
+}
+
+.btnsContainer .btnStartAndPause {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.btnsContainer .btnDone {
+  flex-grow: 1;
+  background-color: var(--green);
+  color: var(--white);
+}
+
+
+

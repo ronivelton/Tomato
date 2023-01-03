@@ -5,8 +5,9 @@ import styles from './Timer.module.css';
 import { darkToLight } from '../../utils/themeSwitcher';
 
 export default function Timer() {
+  const defaultTime = 1200;
   const { theme } = useContext(ThemeContext);
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState(defaultTime);
   const [timerIsRunning, setTimerIsRunning] = useState(false);
 
   useEffect(() => {
@@ -25,8 +26,8 @@ export default function Timer() {
 
   const handleChangeTimer = (e) => {
     e.preventDefault();
-    if (time > 1 && e.target.innerText === '-') setTime(time - 1);
-    if (time < 60 && e.target.innerText === '+') setTime(time + 1);
+    if (time > 1 && e.target.innerText === '-') setTime(time - 60);
+    if (time < 3600 && e.target.innerText === '+') setTime(time + 60);
   };
 
   const formatTimeSeconds = (timeSeconds) => {
@@ -36,13 +37,18 @@ export default function Timer() {
     return `${formattedMinutes}:${formattedSeconds}`;
   };
 
-  const startTimer = () => {
+  const startAndPauseTimer = () => {
     setTimerIsRunning(!timerIsRunning);
   };
 
   const stopTimer = () => {
     setTimerIsRunning(false);
+    setTime(defaultTime);
   };
+
+  // const doneTimer = () => {
+
+  // };
 
   return (
     <>
@@ -67,9 +73,34 @@ export default function Timer() {
           </button>
         )}
       </div>
-      <button onClick={() => startTimer()} className={styles.btnStart} type="button">
-        {timerIsRunning ? 'Pause' : 'Start'}
-      </button>
+
+      <div className={styles.btnsContainer}>
+        <button
+          onClick={() => startAndPauseTimer()}
+          className={`${styles.btnStartAndPause} ${styles.btn}`}
+          type="button"
+        >
+          {timerIsRunning ? 'Pause' : 'Start'}
+        </button>
+        {!timerIsRunning ? null : (
+          <button
+            onClick={() => stopTimer()}
+            className={`${darkToLight(theme)} ${styles.btnStop} ${styles.btn}`}
+            type="button"
+          >
+            Stop
+          </button>
+        )}
+        {!timerIsRunning ? null : (
+          <button
+            onClick={() => console.log('Done Pomodoro')}
+            className={`${styles.btnDone} ${styles.btn}`}
+            type="button"
+          >
+            Done
+          </button>
+        )}
+      </div>
     </>
   );
 }
