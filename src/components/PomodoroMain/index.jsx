@@ -93,22 +93,25 @@ export default function PomodoroMain({ setCounts }) {
       </div>
 
       <div className={styles.buttonsContainer}>
-        <PomodoroButton
-          handlePomodoroAction={startAndPauseTimer}
-          className={`${darkInToLight(theme)}`}
-          type="button"
-        >
-          {isTimerRunning ? 'Pause' : 'Start'}
-        </PomodoroButton>
-        {!isTimerRunning ? null : (
+        <div className={styles.startAndStopButtonContainer}>
           <PomodoroButton
-            handlePomodoroAction={stopTimer}
-            className={`${styles.pomodoroButtonStop}`}
+            handlePomodoroAction={startAndPauseTimer}
+            className={`${darkInToLight(theme)}`}
             type="button"
           >
-            Stop
+            {isTimerRunning ? 'Pause' : 'Start'}
           </PomodoroButton>
-        )}
+          {!isTimerRunning ? null : (
+            <PomodoroButton
+              handlePomodoroAction={stopTimer}
+              className={`${styles.pomodoroButtonStop}`}
+              type="button"
+            >
+              Stop
+            </PomodoroButton>
+          )}
+        </div>
+
         {!isTimerRunning ? null : (
           <PomodoroButton
             handlePomodoroAction={doneTimer}

@@ -1,6 +1,9 @@
 .pomodoroButton {
   max-width: 20rem;
   min-width: 15rem;
+  flex-basis: 15rem;
+  flex-grow: 1;
+  width: 100%;
   height: 6rem;
   border-radius: 5px;
   font-size: 1.8rem;

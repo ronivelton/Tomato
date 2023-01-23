@@ -7,7 +7,7 @@
 }
 
 .pomodoroTimer {
-  font-size: clamp(8rem, 12vw, 12.6rem);
+  font-size: clamp(8rem, 15vw, 12.6rem);
   margin: 2rem 0;
   color: var(--red);
   margin: 0 auto;
@@ -24,17 +24,27 @@
 .buttonsContainer {
   display: flex;
   justify-content: center;
+  max-width: 50rem;
   flex-wrap: wrap;
+  width: 100%;
   gap: 1rem;
 }
 
+.startAndStopButtonContainer {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  justify-content: center;
+}
+
 .buttonsContainer .pomodoroButtonStop {
+  width: 100%;
   background-color: var(--red);
   color: var(--white);
 }
 
 .buttonsContainer .pomodoroButtonDone {
-  flex-grow: 1;
+  width: 100%;
   background-color: var(--green);
   color: var(--white);
 }
