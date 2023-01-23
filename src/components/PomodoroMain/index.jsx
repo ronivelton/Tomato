@@ -7,8 +7,9 @@ import { darkToLight } from '../../utils/themeSwitcher';
 import PomodoroTimerButton from '../PomodoroTimerButton';
 import PomodoroButton from '../PomodoroButton';
 
+import { defaultTime } from '../../CONSTANTS/pomodoroDefaultTime';
+
 export default function Timer() {
-  const defaultTime = 1200;
   const { theme } = useContext(ThemeContext);
   const [time, setTime] = useState(defaultTime);
   const [timerIsRunning, setTimerIsRunning] = useState(false);
@@ -49,9 +50,7 @@ export default function Timer() {
     setTime(defaultTime);
   };
 
-  // const doneTimer = () => {
-
-  // };
+  const doneTimer = () => {};
 
   return (
     <>

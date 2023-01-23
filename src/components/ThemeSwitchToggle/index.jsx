@@ -11,7 +11,13 @@ export default function ThemeSwitchToggle() {
 
   return (
     <label htmlFor="checkbox" className={styles.switch}>
-      <input checked={theme !== 'light'} onClick={toggleTheme} id="checkbox" type="checkbox" />
+      <input
+        readOnly
+        checked={theme !== 'light'}
+        onClick={toggleTheme}
+        id="checkbox"
+        type="checkbox"
+      />
       <span className={styles.slider}>
         <img className={styles.sunIcon} src={sunIcon} alt="Sun icon" />
         <img className={styles.moonIcon} src={moonIcon} alt="Moon icon" />
