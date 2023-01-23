@@ -39,6 +39,6 @@
   font-size: 1.4rem;
 }
 
-.pomodoroCounts > span a {
-  color: var(--white);
+.pomodoroCounts > span > a {
+  color: inherit;
 }

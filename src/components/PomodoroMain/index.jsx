@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import ThemeContext from '../../context/ThemeSwitchContext/ThemeContext';
 import styles from './PomodoroMain.module.css';
 
-import { darkToLight } from '../../utils/themeSwitcher';
+import { darkInToLight } from '../../utils/themeSwitcher';
 
 import PomodoroTimerButton from '../PomodoroTimerButton';
 import PomodoroButton from '../PomodoroButton';
@@ -95,7 +95,7 @@ export default function PomodoroMain({ setCounts }) {
       <div className={styles.buttonsContainer}>
         <PomodoroButton
           handlePomodoroAction={startAndPauseTimer}
-          className={`${darkToLight(theme)}`}
+          className={`${darkInToLight(theme)}`}
           type="button"
         >
           {isTimerRunning ? 'Pause' : 'Start'}

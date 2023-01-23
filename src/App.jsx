@@ -6,14 +6,14 @@ import PomodoroMain from './components/PomodoroMain';
 import PomodoroCounts from './components/PomodoroCounts';
 
 import styles from './App.module.css';
-import { lightToDark } from './utils/themeSwitcher';
+import { lightInToDark, darkInToLight } from './utils/themeSwitcher';
 
 function App() {
   const { theme } = useContext(ThemeContext);
   const [counts, setCounts] = useState(0);
 
   return (
-    <div className={lightToDark(theme)}>
+    <div className={lightInToDark(theme)}>
       <div className={styles.container}>
         <Header />
 
