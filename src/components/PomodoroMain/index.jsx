@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import ThemeContext from '../../context/ThemeSwitchContext/ThemeContext';
-import styles from './Timer.module.css';
+import styles from './PomodoroMain.module.css';
 
 import { darkToLight } from '../../utils/themeSwitcher';
+
+import PomodoroTimerButton from '../PomodoroTimerButton';
+import PomodoroButton from '../PomodoroButton';
 
 export default function Timer() {
   const defaultTime = 1200;
@@ -52,53 +55,49 @@ export default function Timer() {
 
   return (
     <>
-      <div className={styles.pomodoroTimer}>
-        {timerIsRunning ? null : (
-          <button
-            onClick={(e) => handleChangeTimer(e)}
-            className={darkToLight(theme)}
-            type="button"
-          >
-            -
-          </button>
-        )}
-        <span className="timer">{formatTimeSeconds(time)}</span>
-        {timerIsRunning ? null : (
-          <button
-            onClick={(e) => handleChangeTimer(e)}
-            className={darkToLight(theme)}
-            type="button"
-          >
-            +
-          </button>
-        )}
+      <div className={styles.pomodoroTimerContainer}>
+        <PomodoroTimerButton
+          timerIsRunning={timerIsRunning}
+          handleChangeTimer={handleChangeTimer}
+        >
+          -
+        </PomodoroTimerButton>
+
+        <span className={styles.pomodoroTimer}>{formatTimeSeconds(time)}</span>
+
+        <PomodoroTimerButton
+          timerIsRunning={timerIsRunning}
+          handleChangeTimer={handleChangeTimer}
+        >
+          +
+        </PomodoroTimerButton>
       </div>
 
       <div className={styles.btnsContainer}>
-        <button
-          onClick={() => startAndPauseTimer()}
-          className={`${styles.btnStartAndPause} ${styles.btn}`}
+        <PomodoroButton
+          handlePomodoroAction={startAndPauseTimer}
+          className={`${styles.btnStartAndPause}`}
           type="button"
         >
           {timerIsRunning ? 'Pause' : 'Start'}
-        </button>
+        </PomodoroButton>
         {!timerIsRunning ? null : (
-          <button
-            onClick={() => stopTimer()}
+          <PomodoroButton
+            handlePomodoroAction={stopTimer}
             className={`${darkToLight(theme)} ${styles.btnStop} ${styles.btn}`}
             type="button"
           >
             Stop
-          </button>
+          </PomodoroButton>
         )}
         {!timerIsRunning ? null : (
-          <button
-            onClick={() => console.log('Done Pomodoro')}
+          <PomodoroButton
+            handlePomodoroAction={() => console.log('Done Pomodoro')}
             className={`${styles.btnDone} ${styles.btn}`}
             type="button"
           >
             Done
-          </button>
+          </PomodoroButton>
         )}
       </div>
     </>

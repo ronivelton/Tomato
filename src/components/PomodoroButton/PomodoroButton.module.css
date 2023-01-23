@@ -1,0 +1,13 @@
+.pomodoroButton {
+  max-width: 20rem;
+  min-width: 15rem;
+  height: 6rem;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: ease-in 0.1s;
+}
+
+.pomodoroButton:hover {
+  filter: brightness(0.8);
+}

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import ThemeContext from './context/ThemeSwitchContext/ThemeContext';
 
 import Header from './components/Header';
-import Timer from './components/Timer';
+import PomodoroMain from './components/PomodoroMain';
 import Counter from './components/PomodoroCounts';
 
 import styles from './App.module.css';
@@ -17,7 +17,7 @@ function App() {
         <Header />
 
         <main className={styles.main}>
-          <Timer />
+          <PomodoroMain />
         </main>
 
         <footer className={styles.pomodoroCounter}>

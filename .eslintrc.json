@@ -4,14 +4,14 @@
     "es2021": true
   },
   "extends": ["plugin:react/recommended", "airbnb", "plugin:react/jsx-runtime"],
-  "plugins": ["prettier"],
+  "plugins": ["react", "prettier"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
   "rules": {
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "react/prop-types": "off"
   }
 }
