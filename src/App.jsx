@@ -1,15 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import ThemeContext from './context/ThemeSwitchContext/ThemeContext';
 
 import Header from './components/Header';
 import PomodoroMain from './components/PomodoroMain';
-import Counter from './components/PomodoroCounts';
+import PomodoroCounts from './components/PomodoroCounts';
 
 import styles from './App.module.css';
 import { lightToDark } from './utils/themeSwitcher';
 
 function App() {
   const { theme } = useContext(ThemeContext);
+  const [counts, setCounts] = useState(0);
 
   return (
     <div className={lightToDark(theme)}>
@@ -17,11 +18,11 @@ function App() {
         <Header />
 
         <main className={styles.main}>
-          <PomodoroMain />
+          <PomodoroMain setCounts={setCounts} />
         </main>
 
-        <footer className={styles.pomodoroCounter}>
-          <Counter />
+        <footer className={styles.pomodoroCounts}>
+          <PomodoroCounts counts={counts} />
           <span>
             Made By <a href="https://github.com/user/ronivelton">Roni</a>
           </span>

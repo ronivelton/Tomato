@@ -12,7 +12,7 @@ import {
   defaultPomodoroTime,
 } from '../../CONSTANTS/pomodoroDefaultTimes';
 
-export default function Timer() {
+export default function PomodoroMain({ setCounts }) {
   const { theme } = useContext(ThemeContext);
   const [time, setTime] = useState(defaultPomodoroTime);
   const [isTimerRunning, setIsTimerRunning] = useState(false); //state for check and set timer running
@@ -25,7 +25,7 @@ export default function Timer() {
         if (time === 0) {
           setIsTimerRunning(false);
         }
-        setTime(time - 1);
+        setTime((prevState) => prevState - 1);
       }, 1000);
     }
 
@@ -34,9 +34,11 @@ export default function Timer() {
 
   const handleChangeTimer = (e) => {
     console.log(time);
-    if (time >= 60 && e.target.innerText === '-') return setTime(time - 60);
+    if (time >= 60 && e.target.innerText === '-')
+      return setTime((prevState) => prevState - 60);
     if (time > 3500 && time < 3600) return setTime(3600);
-    if (time <= 3600 && e.target.innerText === '+') return setTime(time + 60);
+    if (time <= 3600 && e.target.innerText === '+')
+      return setTime((prevState) => prevState + 60);
   };
 
   const formatTimeSeconds = (timeSeconds) => {
@@ -59,6 +61,7 @@ export default function Timer() {
     setIsTimerRunning(false);
     setTime(!isPomodoroTimer ? defaultPomodoroTime : defaultBreakTime);
     setIsPomodoroTimer(!isPomodoroTimer);
+    if (isPomodoroTimer) setCounts((prevState) => prevState + 1);
   };
 
   return (

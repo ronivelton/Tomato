@@ -1,10 +1,10 @@
 import tomatoIcon from '../../assets/tomato.svg';
 
-export default function Counter() {
+export default function Counter({ counts }) {
   return (
     <div>
       <img src={tomatoIcon} alt="Tomato logo icon" />
-      <span>0</span>
+      <span>{counts}</span>
     </div>
   );
 }
