@@ -13,19 +13,19 @@
   margin: 0 auto;
 }
 
-.btnsContainer {
+.buttonsContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.btnsContainer .btnStartAndPause {
+.buttonsContainer .pomodoroButtonStop {
   background-color: var(--red);
   color: var(--white);
 }
 
-.btnsContainer .btnDone {
+.buttonsContainer .pomodoroButtonDone {
   flex-grow: 1;
   background-color: var(--green);
   color: var(--white);

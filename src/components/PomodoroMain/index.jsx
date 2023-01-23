@@ -7,26 +7,30 @@ import { darkToLight } from '../../utils/themeSwitcher';
 import PomodoroTimerButton from '../PomodoroTimerButton';
 import PomodoroButton from '../PomodoroButton';
 
-import { defaultTime } from '../../CONSTANTS/pomodoroDefaultTime';
+import {
+  defaultBreakTime,
+  defaultPomodoroTime,
+} from '../../CONSTANTS/pomodoroDefaultTimes';
 
 export default function Timer() {
   const { theme } = useContext(ThemeContext);
-  const [time, setTime] = useState(defaultTime);
-  const [timerIsRunning, setTimerIsRunning] = useState(false);
+  const [time, setTime] = useState(defaultPomodoroTime);
+  const [isTimerRunning, setIsTimerRunning] = useState(false); //state for check and set timer running
+  const [isPomodoroTimer, setIsPomodoroTimer] = useState(true); //state for check and set if timer is pomodoro timer or break timer
 
   useEffect(() => {
     let interval;
-    if (timerIsRunning && time > 0) {
+    if (isTimerRunning && time > 0) {
       interval = setInterval(() => {
         if (time === 0) {
-          setTimerIsRunning(false);
+          setIsTimerRunning(false);
         }
         setTime(time - 1);
       }, 1000);
     }
 
     return () => clearInterval(interval);
-  }, [timerIsRunning, time]);
+  }, [isTimerRunning, time]);
 
   const handleChangeTimer = (e) => {
     e.preventDefault();
@@ -42,21 +46,25 @@ export default function Timer() {
   };
 
   const startAndPauseTimer = () => {
-    setTimerIsRunning(!timerIsRunning);
+    setIsTimerRunning(!isTimerRunning);
   };
 
   const stopTimer = () => {
-    setTimerIsRunning(false);
-    setTime(defaultTime);
+    setIsTimerRunning(false);
+    setTime(isPomodoroTimer ? defaultPomodoroTime : defaultBreakTime);
   };
 
-  const doneTimer = () => {};
+  const doneTimer = () => {
+    setIsTimerRunning(false);
+    setTime(!isPomodoroTimer ? defaultPomodoroTime : defaultBreakTime);
+    setIsPomodoroTimer(!isPomodoroTimer);
+  };
 
   return (
     <>
       <div className={styles.pomodoroTimerContainer}>
         <PomodoroTimerButton
-          timerIsRunning={timerIsRunning}
+          isTimerRunning={isTimerRunning}
           handleChangeTimer={handleChangeTimer}
         >
           -
@@ -65,34 +73,34 @@ export default function Timer() {
         <span className={styles.pomodoroTimer}>{formatTimeSeconds(time)}</span>
 
         <PomodoroTimerButton
-          timerIsRunning={timerIsRunning}
+          isTimerRunning={isTimerRunning}
           handleChangeTimer={handleChangeTimer}
         >
           +
         </PomodoroTimerButton>
       </div>
 
-      <div className={styles.btnsContainer}>
+      <div className={styles.buttonsContainer}>
         <PomodoroButton
           handlePomodoroAction={startAndPauseTimer}
-          className={`${styles.btnStartAndPause}`}
+          className={`${darkToLight(theme)}`}
           type="button"
         >
-          {timerIsRunning ? 'Pause' : 'Start'}
+          {isTimerRunning ? 'Pause' : 'Start'}
         </PomodoroButton>
-        {!timerIsRunning ? null : (
+        {!isTimerRunning ? null : (
           <PomodoroButton
             handlePomodoroAction={stopTimer}
-            className={`${darkToLight(theme)} ${styles.btnStop} ${styles.btn}`}
+            className={`${styles.pomodoroButtonStop}`}
             type="button"
           >
             Stop
           </PomodoroButton>
         )}
-        {!timerIsRunning ? null : (
+        {!isTimerRunning ? null : (
           <PomodoroButton
-            handlePomodoroAction={() => console.log('Done Pomodoro')}
-            className={`${styles.btnDone} ${styles.btn}`}
+            handlePomodoroAction={doneTimer}
+            className={`${styles.pomodoroButtonDone}`}
             type="button"
           >
             Done

@@ -5,12 +5,12 @@ import ThemeContext from '../../context/ThemeSwitchContext/ThemeContext';
 import styles from './PomodoroTimerButton.module.css';
 
 export default function PomodoroTimerButton({
-  timerIsRunning,
+  isTimerRunning,
   handleChangeTimer,
   children,
 }) {
   const { theme } = useContext(ThemeContext);
-  return timerIsRunning ? null : (
+  return isTimerRunning ? null : (
     <button
       onClick={(e) => handleChangeTimer(e)}
       className={`${darkToLight(theme)} ${styles.pomodoroTimerButton}`}
