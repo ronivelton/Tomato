@@ -33,9 +33,10 @@ export default function Timer() {
   }, [isTimerRunning, time]);
 
   const handleChangeTimer = (e) => {
-    e.preventDefault();
-    if (time > 1 && e.target.innerText === '-') setTime(time - 60);
-    if (time < 3600 && e.target.innerText === '+') setTime(time + 60);
+    console.log(time);
+    if (time >= 60 && e.target.innerText === '-') return setTime(time - 60);
+    if (time > 3500 && time < 3600) return setTime(3600);
+    if (time <= 3600 && e.target.innerText === '+') return setTime(time + 60);
   };
 
   const formatTimeSeconds = (timeSeconds) => {
@@ -70,7 +71,15 @@ export default function Timer() {
           -
         </PomodoroTimerButton>
 
-        <span className={styles.pomodoroTimer}>{formatTimeSeconds(time)}</span>
+        <span
+          className={`${styles.pomodoroTimer} ${
+            isPomodoroTimer
+              ? styles.pomodoroTimerRed
+              : styles.pomodoroTimerGreen
+          }`}
+        >
+          {formatTimeSeconds(time)}
+        </span>
 
         <PomodoroTimerButton
           isTimerRunning={isTimerRunning}

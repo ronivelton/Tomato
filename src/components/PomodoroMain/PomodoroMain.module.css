@@ -13,6 +13,14 @@
   margin: 0 auto;
 }
 
+.pomodoroTimerRed {
+  color: var(--red);
+}
+
+.pomodoroTimerGreen {
+  color: var(--green);
+}
+
 .buttonsContainer {
   display: flex;
   justify-content: center;
